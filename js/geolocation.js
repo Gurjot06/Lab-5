@@ -20,7 +20,7 @@ function success(position) {
     latitude.textContent = position.coords.latitude + "°";
     longitude.textContent = position.coords.longitude + "°";
     // STEP 3d: Build out the link to OpenStreetMap
-    const url = `https://www.openstreetmap.org/#map=16/${position.coords.latitude}/${position.coords.longitude}`;
+    const url = `https://www.google.com/maps/#map=16/${position.coords.latitude}/${position.coords.longitude}`;
     mapLink.setAttribute("href", url);
     mapLink.setAttribute("target", "_blank");
     mapLink.textContent = "Open on Maps";
