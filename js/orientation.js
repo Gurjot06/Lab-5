@@ -12,7 +12,7 @@ const betaValue = document.querySelector('#beta output');
 const gammaSlider = document.querySelector('#gamma input[type="range"]');
 // STEP 1f: Grab the <output> element just after the previous element
 const gammaValue = document.querySelector('#gamma output');
-// STEP 1g" Grab the <p id="status"> to output error messages, if needed
+// STEP 1g: Grab the <p id="status"> to output error messages, if needed
 const statusMsg = document.querySelector('#status');
 
 /* Functions
@@ -21,9 +21,8 @@ const statusMsg = document.querySelector('#status');
 // STEP 4a: Construct the error() function
 function error() {
     // STEP 4b: Output a suitable error message
-    statusMsg.textContent = "DeviceOrientationEvent is not supported by your browser.";
+    statusMsg.textContent = "Device orientation is not supported by your browser or device.";
 }
-
 
 /* Script Logic
 -------------------------------------------------- */
