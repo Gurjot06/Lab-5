@@ -21,15 +21,22 @@ function updateBatteryStatus(battery) {
     // STEP 3c: Update the charge level
     chargeLevel.textContent = (battery.level * 100) + "%";
     chargeMeter.value = (battery.level * 100);
+
+    // STEP 3d: Integrating with the RoboHash API
+    const batteryPercentage = Math.round(battery.level * 100);
+    const imageURL = `https://robohash.org/${batteryPercentage}.png`;
+    
+    // STEP 3e: Display the image on the HTML page
+    const imageContainer = document.createElement('img');
+    imageContainer.src = imageURL;
+    document.body.appendChild(imageContainer);
 }
 
-
-// STEP 2a: Using the getBattery() method of the navigator object, 
-//create a promise to retrieve the battery information
+// STEP 2a: Using the getBattery() method of the navigator object, create a promise to retrieve the battery information
 navigator.getBattery().then(battery => {
     // STEP 2b: See what the battery object contains
     console.log(battery);
-    // STEP 3d: Update the battery information when the promise resolves
+    // STEP 3f: Update the battery information when the promise resolves
     updateBatteryStatus(battery);
     // STEP 4a: Event listener for changes to the charging status
     battery.addEventListener("chargingchange", () => {
@@ -40,6 +47,3 @@ navigator.getBattery().then(battery => {
         updateBatteryStatus(battery);
     })
 })
-
-
-/* This script adapted from the excellent code examples found at https://www.w3.org/TR/battery-status/#examples and https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API */
